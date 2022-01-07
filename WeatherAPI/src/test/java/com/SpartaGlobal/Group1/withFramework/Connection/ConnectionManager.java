@@ -13,4 +13,17 @@ public class ConnectionManager {
     public static String getConnectionGivenCityAndCountry(String city, String country) {
         return BASEURL + "?q=" + city +",\"\"," + country + "&appid=" + KEY;
     }
+
+    public static String getConnectionGivenCityID(int id){
+        return BASEURL + "?id=" + id + "&appid=" + KEY;
+    }
+
+    public static String getConnectionGivenZip(String zip, String country) {
+        return BASEURL + "?zip=" + zip + "," + country + "&appid=" + KEY;
+    }
+
+    public static String getConnectionGivenGeographicalCoordinates(double lat, double lon) {
+        return BASEURL + "?lat=" + lat + "&lon=" + lon + "&appid=" + KEY;
+    }
 }
+

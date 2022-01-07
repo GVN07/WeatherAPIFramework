@@ -98,14 +98,3 @@ public class WeatherDTO{
 }
 
 
-//{"coord":{"lon":-0.1257,"lat":51.5085},
-// "weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],
-// "base":"stations",
-// "main":{"temp":278.29,"feels_like":274.84,"temp_min":276.69,"temp_max":279.26,"pressure":1009,"humidity":76},"visibility":10000,
-// "wind":{"speed":4.63,"deg":240},
-// "clouds":{"all":76},"dt":1641570500,
-// "sys":{"type":2,"id":2019646,"country":"GB","sunrise":1641542673,"sunset":1641571708},
-// "timezone":0, - TESTED
-// "id":2643743,
-// "name":"London", - TESTED
-// "cod":200} - TESTED
