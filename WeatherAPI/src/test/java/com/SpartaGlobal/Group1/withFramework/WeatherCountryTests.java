@@ -8,17 +8,24 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class WeatherZipcodeTest {
+public class WeatherCountryTests {
     private static WeatherDTO weatherDTO;
 
     @BeforeAll
     public static void init() {
-        weatherDTO = Injector.injectWeatherDTO(ConnectionManager.getConnectionGivenZip("94040", "US"));
+        weatherDTO = Injector.injectWeatherDTO(ConnectionManager.getConnectionGivenCityAndCountry("birmingham", "gb"));
     }
 
     @Test
     @DisplayName("Test that correct name is returned")
-    public void nameTest(){
-        Assertions.assertEquals("Mountain View", weatherDTO.getName());
+    public void nameTest() {
+        Assertions.assertEquals("Birmingham", weatherDTO.getName());
     }
+
+    @Test
+    @DisplayName("Test that country is correct")
+    public void countryTest() {
+        Assertions.assertEquals("GB", weatherDTO.getSys().getCountry());
+    }
+
 }

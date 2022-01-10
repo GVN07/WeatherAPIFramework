@@ -8,23 +8,24 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class WeatherCountryTest {
+public class WeatherIdTests {
     private static WeatherDTO weatherDTO;
 
     @BeforeAll
     public static void init() {
-        weatherDTO = Injector.injectWeatherDTO(ConnectionManager.getConnectionGivenCityAndCountry("birmingham", "gb"));
+        weatherDTO = Injector.injectWeatherDTO(ConnectionManager.getConnectionGivenCityID(2643743));
     }
 
     @Test
-    @DisplayName("Test that correct name is returned")
-    public void nameTest(){
-        Assertions.assertEquals("Birmingham", weatherDTO.getName());
+    @DisplayName("Checking City ID is correct")
+    public void cityIDTest (){
+        Assertions.assertEquals(2643743, weatherDTO.getId());
     }
 
     @Test
-    @DisplayName("Test that country is correct")
-    public void countryTest(){
-        Assertions.assertEquals("GB", weatherDTO.getSys().getCountry());
+    @DisplayName("Invalid input shows 400 code")
+    public void invalidInput400Test() {
+        int statusCode = ConnectionManager.getStatusCode(ConnectionManager.getConnectionGivenCityID(-1));
+        Assertions.assertEquals(400, statusCode);
     }
 }
