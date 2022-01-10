@@ -3,12 +3,9 @@ package com.SpartaGlobal.Group1.withFramework;
 import com.SpartaGlobal.Group1.withFramework.Connection.ConnectionManager;
 import com.SpartaGlobal.Group1.withFramework.DTO.WeatherDTO;
 import com.SpartaGlobal.Group1.withFramework.Injector.Injector;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-public class WeatherGeographicalTest {
+public class WeatherGeographicalTests {
     private static WeatherDTO weatherDTO;
 
     @BeforeAll
@@ -22,4 +19,10 @@ public class WeatherGeographicalTest {
         Assertions.assertEquals("Shuzenji", weatherDTO.getName());
     }
 
+    @Test
+    @DisplayName("Invalid input shows 400 code")
+    public void invalidInput400Test() {
+        int statusCode = ConnectionManager.getStatusCode(ConnectionManager.getConnectionGivenGeographicalCoordinates(100, 100));
+        Assertions.assertEquals(400, statusCode);
+    }
 }
