@@ -2,6 +2,7 @@
 
 ## About our project?
 - Our project is designed to test the efficiency of a Weather API
+
 - The API's documentation can be found on : https://openweathermap.org/current
 
 
@@ -29,3 +30,4 @@
 3. Generate an API key here https://home.openweathermap.org/api_keys
 4. Inside the [resources](https://github.com/GVN07/WeatherAPIFramework/tree/dev/WeatherAPI/src/resources) folder, create a config.txt file and insert your API key
 5. Now you can run the tests
+
